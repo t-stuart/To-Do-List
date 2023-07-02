@@ -1,0 +1,4 @@
+cook
+clean
+dance
+add a new member
