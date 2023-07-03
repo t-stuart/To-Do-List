@@ -1,5 +1,3 @@
 cook
 clean
-dance
-add a new member
-Become a master programmer
+runboogey
