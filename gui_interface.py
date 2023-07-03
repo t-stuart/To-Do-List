@@ -14,9 +14,14 @@ add_button = gui.Button("Add")
 list_box = gui.Listbox(values=functions.get_list(), key="tasks",
                        enable_events=True, size=(45, 10))
 edit_button = gui.Button("Edit")
+complete_button = gui.Button("Complete")
+exit_button = gui.Button("Exit")
 
 window = gui.Window('My To-Do List',
-                    layout=[[label], [input_box, add_button], [list_box, edit_button]],
+                    layout=[[label],
+                            [input_box, add_button],
+                            [list_box, edit_button, complete_button],
+                            [exit_button]],
                     font=('Helvetica', 12))
 
 while True:
@@ -30,6 +35,7 @@ while True:
             todo_list.append(new_task)
             functions.write_list(todo_list)
             window["tasks"].update(values=todo_list)
+            window["task"].update(value='')
         case "Edit":
             task_to_edit = values["tasks"][0]
             new_task = values["task"]
@@ -39,6 +45,15 @@ while True:
             todo_list[index] = new_task
             functions.write_list(todo_list)
             window["tasks"].update(values=todo_list)
+        case "Complete":
+            task_to_complete = values["tasks"][0]
+            todo_list = functions.get_list()
+            todo_list.remove(task_to_complete)
+            functions.write_list(todo_list)
+            window["tasks"].update(values=todo_list)
+            window["task"].update(value='')
+        case "Exit":
+            break
         case "tasks":
             window["task"].update(value=values["tasks"][0])
 
