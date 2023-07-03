@@ -1,3 +1,10 @@
+"""
+While the functionality has been expanded,
+the starter code is not original
+and is only for educational purposes
+"""
+
+
 def get_list(filepath="todo_list.txt"):
     """ Read a text file and return the list of tasks """
     with open(filepath) as local_file:
