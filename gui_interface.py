@@ -8,6 +8,11 @@ and is only for educational purposes
 import functions
 import PySimpleGUI as gui
 import time
+import os
+
+if not os.path.exists("todo_list.txt"):
+    with open("todo_list.txt", "w") as file:
+        pass
 
 gui.theme('DarkBlue12')
 
